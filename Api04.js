@@ -98,7 +98,7 @@ app.get("/peliculas/", (req, res) => {
     } else {
       res.status(404).json({
         estado: 0,
-        message: "No existen categorias",
+        message: "No se encontraron peliculas",
         peliculas: null,
       });
     }
@@ -124,7 +124,7 @@ app.get("/peliculas/:id", (req, res) => {
 
 app.post("/peliculas/", (req, res) => {
     const { titulo, director, año, genero, calificacion } = req.body;
-    const id = categorias.length + 1;
+    const id = peliculas.length + 1;
     if(titulo==undefined || director==undefined || año==undefined || genero==undefined || calificacion==undefined){
         res.status(400).json({
             estado: 0,
